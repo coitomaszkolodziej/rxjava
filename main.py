@@ -65,7 +65,14 @@ def generateAlbums(n):
     conn.commit()
     conn.close()
 
-clearArtists()
-generateArtists(100)
-clearAlbums()
-generateAlbums(200)
+
+
+def generateData(n,m,k):
+    clearArtists()
+    generateArtists(n)
+    clearAlbums()
+    generateAlbums(m)
+    clearSongs()
+    generateSongs(k)
+
+wywolajFunkcje(100,200,400)
