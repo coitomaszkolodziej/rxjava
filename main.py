@@ -2,10 +2,7 @@ import random
 import psycopg2
 import sys
 
-namesPath='C:/Users/Praktyki/Desktop/InputData/names.txt'
-surnamesPath='C:/Users/Praktyki/Desktop/InputData/surnames.txt'
-countriesPath='C:/Users/Praktyki/Desktop/InputData/countries.txt'
-cityListPath='C:/Users/Praktyki/Desktop/InputData/city-list.txt'
+
 
 def makeConnection():
     connString = "host = 'localhost' dbname = 'artistsandsongs' user = 'admin'  password = 'admin'"
@@ -39,7 +36,13 @@ def clearSongs():
     conn.commit()
     conn.close()
 
-def generate(n,names,surnames,countries,cityList):
+def generate(n,katalog):
+    namesPath='/names.txt'
+    surnamesPath='/surnames.txt'
+    countriesPath='/countries.txt'
+    cityListPath='/city-list.txt'
+    sciezka='C:/Users/Praktyki/Desktop/'
+
     conn_string = "host='localhost' dbname='artistsandsongs' user='admin' password='admin'"
     print "Connecting to database\n	->%s" % (conn_string)
     conn = psycopg2.connect(conn_string)
@@ -48,9 +51,9 @@ def generate(n,names,surnames,countries,cityList):
     clearArtists()
     clearAlbums()
     clearSongs()
-    with open(names) as f:
+    with open(sciezka+katalog+namesPath) as f:
         listOfNames = f.read().splitlines()
-    with open(surnames) as f:
+    with open(sciezka+katalog+surnamesPath) as f:
         listOfSurnames = f.read().splitlines()
     for i in range(1, n+1):
         cursor.execute("INSERT INTO artists( artist_name, artist_surname, artist_age) VALUES(%s, %s, %s)", (unicode(random.choice(listOfNames), "utf-8"),
@@ -58,7 +61,7 @@ def generate(n,names,surnames,countries,cityList):
                                                                                                         unicode(str(random.randrange(20,80)), "utf-8")))
 
         k=random.randrange(1,5)
-        with open(countries) as f:
+        with open(sciezka+katalog+countriesPath) as f:
             listOfCountries = f.read().splitlines()
             for j in range(1, k+1):
                 cursor.execute("INSERT INTO albums (album_name,artist_id) VALUES(%s,%s)", (unicode(random.choice(listOfCountries), "utf-8"),
@@ -67,7 +70,7 @@ def generate(n,names,surnames,countries,cityList):
                 numberOfAlbums = cursor.fetchone()[0]
 
                 o=random.randrange(1,10)
-                with open(cityList) as f:
+                with open(sciezka+katalog+cityListPath) as f:
                     listOfCities = f.read().splitlines()
                     for w in range(1, o+1):
                         cursor.execute("INSERT INTO songs (song_name,album_id) VALUES(%s,%s)", (unicode(random.choice(listOfCities), "utf-8"),
@@ -78,4 +81,4 @@ def generate(n,names,surnames,countries,cityList):
     conn.close()
 
 
-generate(1000,namesPath,surnamesPath,countriesPath,cityListPath)
+#generate(1000,namesPath,surnamesPath,countriesPath,cityListPath)
