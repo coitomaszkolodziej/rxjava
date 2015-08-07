@@ -7,7 +7,7 @@ Liczba utworów jest generowana na podstawie listy albumów, dla ka¿dego albumu lo
 WYMAGANIA
 ---------------------
 Python 2.7<br />
-<br />
+
 - Aby sprawdziæ aktualn¹ wersjê Pythona w lini poleceñ nale¿y wpisac komendê 'python'<br />
 
 KONFIGURACJA
