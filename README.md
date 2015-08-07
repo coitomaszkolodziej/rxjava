@@ -1,14 +1,15 @@
 WSTÊP
 ---------------------
 Program wpisuje dane do tabel bazy danych 'artistsandsongs' z podanych plików.<br />
-Na podstawie iloœci wprowadzonych artystów liczba albumów jest generowana losowo z przedzialu (1;5). Liczba utworów jest generowana na podstawie listy albumów, dla ka¿dego albumu losowana jest lista utworów z przedzia³u (1,10).<br />
+Na podstawie iloœci wprowadzonych artystów liczba albumów jest generowana losowo z przedzialu (1;5).<br /> 
+Liczba utworów jest generowana na podstawie listy albumów, dla ka¿dego albumu losowana jest lista utworów z przedzia³u (1,10).<br />
 <br />
 WYMAGANIA
 ---------------------
 Python 2.7<br />
 <br />
 - Aby sprawdziæ aktualn¹ wersjê Pythona w lini poleceñ nale¿y wpisac komendê 'python'<br />
-<br />
+
 KONFIGURACJA
 ---------------------
 - Aby wywo³aæ funkcje generuj¹c¹ dane nale¿y w lini poleceñ wpisaæ komendê:<br />
