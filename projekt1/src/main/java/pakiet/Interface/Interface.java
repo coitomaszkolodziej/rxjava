@@ -7,6 +7,8 @@ public interface Interface
 {
     LinkedList<GetArtistsID> getArtistsQuery();
     void groupArtistQuery();
-    void insertArtistsQuery(int i); //indeks pierwszego dodawanego rekordu, ilosc dodawanych rekordow
+    void insertArtistsQuery(int i) ; //ilosc dodawanych rekordow
     void deleteArtistsQuery(int i,int k); //indeks pierwszego usuwanego rekordu, ilosc usuwanych rekordow
+    void updateArtistQuery(int j); //ilosc zmienianych rekordow
+    void deleteAllArtists();
 }

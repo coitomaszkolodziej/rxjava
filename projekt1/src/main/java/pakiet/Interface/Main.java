@@ -17,7 +17,10 @@ public class Main
             {
 		System.out.println(p.getId());
             }*/
-        javaObject.insertArtistsQuery(50);
-        //javaObject.deleteArtistsQuery(2000,50);
+        
+       //javaObject.insertArtistsQuery(25000);
+       //javaObject.deleteArtistsQuery(0000,5000);
+       //javaObject.updateArtistQuery(350);
+        javaObject.deleteAllArtists();
     }
 }
