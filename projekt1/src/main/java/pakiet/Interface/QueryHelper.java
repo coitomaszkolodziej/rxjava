@@ -10,12 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import pakiet.DBConnection;
-
+import java.util.ArrayList;
 /**
  *
  * @author Praktyki
  */
 public final class QueryHelper {
+    
+    static PreparedStatement ps=null;
     
     private QueryHelper() {
         // do nothing
@@ -23,15 +25,21 @@ public final class QueryHelper {
     
     public static PreparedStatement getPreparedStatement(final Query query, final List<Object> parameters)
     {
-    PreparedStatement ps;
-    try
-    {
-        Connection conn = DBConnection.getConnection();
-        ps=conn.prepareStatement(query.getSql());
-    }
+    String sql=query.getSql();
+    
+        try
+        {
+            Connection conn = DBConnection.getConnection();
+            ps=conn.prepareStatement(sql);
+            
+        }
     catch(SQLException e){}
     catch(ClassNotFoundException e){}
+    
     return ps;
+    
     }
+    
+    
     
 }

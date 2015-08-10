@@ -14,18 +14,24 @@ import java.util.List;
  */
 public enum Query {
     
-    GET_ARTISTS("SELECT * FROM artists", new ArrayList<Object>());
+    GET_ARTISTS("SELECT artist_id FROM artists"),
+    UPDATE_ARTISTS("UPDATE artists SET artist_name=:artist_name WHERE artist_id=?"),
+    DELETE_ARTISTS("DELETE FROM artists WHERE artist_id BETWEEN 1 AND 500"),
+    DELETE_ALL_ARTISTS("DELETE FROM artists"),
+    INSERT_INTO_ARTISTS("INSERT INTO artists (artist_id,artist_name) VALUES (?,?)");
+    
     
     private final String sql;
-    private List<Object> parameters;
 
-    Query(final String sql, final List<Object> parameters) {
+    Query(final String sql) {
         this.sql = sql;
-        this.parameters = parameters;
     }
     
     public String getSql() {
         return sql;
     }
+    
+    
+    
     
 }

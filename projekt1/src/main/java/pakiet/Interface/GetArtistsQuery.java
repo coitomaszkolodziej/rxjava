@@ -5,20 +5,53 @@
  */
 package pakiet.Interface;
 
+import aaa.GetArtistsID;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
-
+import pakiet.DBConnection;
+import pakiet.Interface.QueryHelper;
+import java.util.ArrayList;
 /**
  *
  * @author Praktyki
  */
 public class GetArtistsQuery implements Executable {
-
-    
     
     public void execute(Query query, List<Object> parameters) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet."); ????????????????????????????????????????????
         //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            PreparedStatement q;
+            q = QueryHelper.getPreparedStatement(query, parameters);
+            
+            q.executeQuery();
+            q.close();
+        }
+        catch(SQLException e){ System.out.println(e);}
         
     }
     
+   /*public List<Object> getArtistsQuery(Query query)
+    {  
+        List<Object> list = new ArrayList<Object>();
+        try
+        {
+                q = QueryHelper.getPreparedStatement(query, list);
+                
+                ResultSet rs = q.executeQuery();
+                
+                while(rs.next())
+                {
+                    list.add(new GetArtistsID(rs.getInt(1)));
+                }        
+        }
+        catch(SQLException e){}
+        //catch(ClassNotFoundException e){}
+        return list;
+    } */
 }

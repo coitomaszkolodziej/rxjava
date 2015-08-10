@@ -5,11 +5,12 @@
  */
 package pakiet.Interface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public interface Executable {
     
     void execute(Query query, List<Object> parameters);
-    
+    //public List<Object> getArtistsQuery(Query query);
 }
