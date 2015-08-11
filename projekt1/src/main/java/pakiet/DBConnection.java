@@ -23,8 +23,9 @@ public class DBConnection{
 	}
 	public static Connection getConnection() throws SQLException, ClassNotFoundException
 	{
-		createConnection();
-		return connection;
+		if(connection==null)
+                    createConnection();
+                return connection;
 	}
 
 	
