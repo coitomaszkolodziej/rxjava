@@ -40,10 +40,10 @@ def generate(n):
     countriesPath='/countries.txt'
     cityListPath='/city-list.txt'
 
-    folder=str(raw_input('Wpisz nazwe folderu z danymi: '))
+    folder=str(raw_input('Wpisz pelna sciezke folderu z danymi: '))
     if folder=='':
-        folder='InputData'
-    sciezka=('C:/Users/Praktyki/Desktop/' + folder)
+        folder='C:/Users/Praktyki/Desktop/InputData'
+    sciezka=folder
 
     conn_string = "host='localhost' dbname='artistsandsongs' user='admin' password='admin'"
     print "Connecting to database\n	->%s" % (conn_string)
@@ -77,6 +77,8 @@ def generate(n):
                     for w in range(1, o+1):
                         cursor.execute("INSERT INTO songs (song_name,album_id) VALUES(%s,%s)", (unicode(random.choice(listOfCities), "utf-8"),
                                                                                             numberOfAlbums))
+
+    print "Baza danych zostala uzupelniona\n"
 
     cursor.close()
     conn.commit()
