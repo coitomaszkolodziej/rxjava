@@ -1,0 +1,13 @@
+pl\gov\coi\queries\InsertArtistsQuery.class
+pl\gov\coi\Main.class
+pl\gov\coi\DataLoader.class
+pl\gov\coi\queries\Executable.class
+pl\gov\coi\Random.class
+pl\gov\coi\db\DatabaseConnection.class
+pl\gov\coi\Mode.class
+pl\gov\coi\test\QueryTesterFactory$1.class
+pl\gov\coi\test\QueryTesterFactory.class
+pl\gov\coi\queries\InsertArtistQuery.class
+pl\gov\coi\queries\GetArtistsQuery.class
+pl\gov\coi\test\QueryTester.class
+pl\gov\coi\queries\Query.class
