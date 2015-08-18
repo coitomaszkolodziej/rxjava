@@ -19,6 +19,8 @@ public class InsertArtistQuery implements Executable {
 
     public void execute() throws SQLException {
         Query.getPreparedStatement(Query.INSERT_ARTIST, getRandomParameters()).execute();
+        //Query.getPreparedStatement(Query.INSERT_ARTIST, getRandomParameters()).execute();
+        //Query.RX(Query.INSERT_ARTIST);
     }
 
     private List<Object> getRandomParameters() {
