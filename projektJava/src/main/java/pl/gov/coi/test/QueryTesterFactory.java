@@ -2,6 +2,7 @@ package pl.gov.coi.test;
 
 import com.google.common.collect.Lists;
 import pl.gov.coi.Mode;
+import pl.gov.coi.queries.DeleteArtistsQuery;
 import pl.gov.coi.queries.Executable;
 import pl.gov.coi.queries.InsertArtistsQuery;
 import pl.gov.coi.queries.InsertArtistsQueryRx;
@@ -19,7 +20,8 @@ public class QueryTesterFactory {
         switch (mode) {
             case DEFAULT: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
-                                new InsertArtistsQuery(),
+                                //new InsertArtistsQuery(),
+                                new DeleteArtistsQuery(),
                         }
                 ));
             }

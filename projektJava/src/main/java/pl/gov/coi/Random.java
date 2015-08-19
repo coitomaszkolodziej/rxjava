@@ -16,7 +16,7 @@ public class Random {
         return list.get(new java.util.Random().nextInt(list.size()));
     }
 
-    public static int getIntValue() {
+    public static int getIntAgeValue() {
         return new java.util.Random().nextInt((80 - 20) + 1) + 20;
     }
 

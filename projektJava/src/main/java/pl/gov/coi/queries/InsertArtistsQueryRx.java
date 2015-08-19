@@ -2,11 +2,9 @@ package pl.gov.coi.queries;
 
 
 import java.sql.SQLException;
-import java.lang.Thread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import rx.*;
-import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
 
@@ -15,15 +13,19 @@ import rx.schedulers.Schedulers;
  * @author Tomasz Ko³odziej
  */
 public class InsertArtistsQueryRx implements Executable { 
-    private InsertArtistQuery insertArtistQuery = new InsertArtistQuery();
+    final private InsertArtistQuery insertArtistQuery = new InsertArtistQuery();
     public void execute() throws SQLException 
-    {
-         ExecutorService executorService = Executors.newSingleThreadExecutor();
+    {   
         /*
         Powinno robic dokladnie to samo co InsertArtistsQuery ale w roznych watkach (rxJava)
          */
-        //System.out.println("Start: "+Thread.currentThread());
         for(int j=1;j<=100;j++)
+            threads();
+    }
+    
+    private void threads()
+    {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
         {
         Observable myObservable = Observable.create
         (
@@ -31,9 +33,7 @@ public class InsertArtistsQueryRx implements Executable {
             {
                 public void call(Subscriber<? super InsertArtistQuery> sub) 
                 {             
-                    //System.out.println(Thread.currentThread());
                     System.out.println(Thread.currentThread().getName());
-
                     sub.onNext(insertArtistQuery);
                     sub.onCompleted();
                 }
@@ -44,11 +44,11 @@ public class InsertArtistsQueryRx implements Executable {
         {
             public void onNext(InsertArtistQuery s) 
             { 
-                try {                    
+                try {        
                     s.execute();
                  } catch (SQLException ex) { System.out.println(ex); }
             }
-            public void onCompleted() {             
+            public void onCompleted() {            
             }
             public void onError(Throwable e) {System.out.println(e); } 
         };
@@ -63,6 +63,5 @@ public class InsertArtistsQueryRx implements Executable {
           } catch(InterruptedException ex) {Thread.currentThread().interrupt();}
         }
       executorService.shutdown();
-    }
-    
+    }  
 }

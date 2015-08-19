@@ -6,17 +6,12 @@
 package pl.gov.coi.queries;
 
 import com.github.davidmoten.rx.jdbc.Database;
-import com.github.davidmoten.rx.jdbc.QuerySelect;
-import com.github.davidmoten.rx.jdbc.QueryUpdate;
-import com.github.davidmoten.rx.jdbc.Util;
 import pl.gov.coi.db.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-import java.lang.Object;
-import rx.Observable;
 
 /**
  * @author Praktyki
@@ -26,6 +21,7 @@ public enum Query {
     DELETE_ARTIST("DELETE FROM artists WHERE artist_id=?"),
     INSERT_ARTIST("INSERT INTO artists (artist_name,artist_surname,artist_age) VALUES (?,?,?)"),
     GET_ARTISTS("SELECT artist_id, artist_name,artist_surname,artist_age FROM artists WHERE artists_name = ?");
+    
     
     private final String sql;
 
@@ -57,7 +53,7 @@ public enum Query {
     {
         final Connection conn = DatabaseConnection.getInstance().getConnection();
         Database db=new Database(conn);
-        db.update(INSERT_ARTIST.getSql()).parameters("dsa","xz",23);
+        db.update(INSERT_ARTIST.getSql()).parameters("A","B",23);
         //List<Integer> id=  db.select("Select artist_id FROM artists").getAs(Integer.class).toList().toBlocking().single();
         //System.out.println(id);
         //System.out.println(query.getSql());
