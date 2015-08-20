@@ -2,10 +2,13 @@ package pl.gov.coi.test;
 
 import com.google.common.collect.Lists;
 import pl.gov.coi.Mode;
-import pl.gov.coi.queries.DeleteArtistsQuery;
+import pl.gov.coi.queries.deleteArtists.DeleteArtistsQuery;
+import pl.gov.coi.queries.deleteArtists.DeleteArtistsQueryRx;
 import pl.gov.coi.queries.Executable;
-import pl.gov.coi.queries.InsertArtistsQuery;
-import pl.gov.coi.queries.InsertArtistsQueryRx;
+import pl.gov.coi.queries.getArtists.GetArtistsQuery;
+import pl.gov.coi.queries.getArtists.GetArtistsQueryRx;
+import pl.gov.coi.queries.insertArtists.InsertArtistsQuery;
+import pl.gov.coi.queries.insertArtists.InsertArtistsQueryRx;
 
 /**
  * @author Tomasz Ko³odziej
@@ -21,13 +24,16 @@ public class QueryTesterFactory {
             case DEFAULT: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
                                 //new InsertArtistsQuery(),
-                                new DeleteArtistsQuery(),
+                                //new DeleteArtistsQuery(),
+                                //new GetArtistsQuery(),
                         }
                 ));
             }
             case RXJAVA: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
-                                new InsertArtistsQueryRx(),
+                                //new InsertArtistsQueryRx(),
+                                new DeleteArtistsQueryRx(),
+                                //new GetArtistsQueryRx(),
                         }
                 ));
             }

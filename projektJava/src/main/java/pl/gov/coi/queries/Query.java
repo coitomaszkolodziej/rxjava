@@ -20,7 +20,7 @@ public enum Query {
 
     DELETE_ARTIST("DELETE FROM artists WHERE artist_id=?"),
     INSERT_ARTIST("INSERT INTO artists (artist_name,artist_surname,artist_age) VALUES (?,?,?)"),
-    GET_ARTISTS("SELECT artist_id, artist_name,artist_surname,artist_age FROM artists WHERE artists_name = ?");
+    GET_ARTISTS("SELECT artist_id, artist_name,artist_surname,artist_age FROM artists WHERE artist_name = ?");
     
     
     private final String sql;
