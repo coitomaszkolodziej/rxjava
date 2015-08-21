@@ -22,7 +22,7 @@ import pl.gov.coi.queries.Query;
  */
 public class DeleteArtistQuery {
     List<Object> list=new ArrayList<Object>();
-
+    int k=0;
     public void execute() throws SQLException {
         Query.getPreparedStatement(Query.DELETE_ARTIST, getRandomParameters()).execute();
     }
@@ -32,13 +32,14 @@ public class DeleteArtistQuery {
         Integer num=rowsCounter();
         int i=0;
         int s=Random.getIntValue(list.size());
-        i = (Integer)list.get(0);
-        /*do
+        int w = ((Integer)list.get(s-1));
+        //k++;
+        do
         {
             i=(Random.getIntValue(num));
             
-        }while(i!=w);*/
-        System.out.println(i);
+        }while(i!=w);
+        //System.out.println(k);
         params.add(i);
         return params;
     }
@@ -66,7 +67,7 @@ public class DeleteArtistQuery {
                             rs.close();
                             rs1.close();
                         }
-                        catch(SQLException e){System.out.println(e);}
+                        catch(SQLException e){}
         return number;
         }
 }

@@ -33,7 +33,7 @@ public class GetArtistsQueryRx implements Executable{
             {
                 public void call(Subscriber<? super GetArtistQuery> sub) 
                 {             
-                    System.out.println(Thread.currentThread().getName());
+                    //System.out.println(Thread.currentThread().getName());
                     sub.onNext(getArtistQuery);
                     sub.onCompleted();
                 }

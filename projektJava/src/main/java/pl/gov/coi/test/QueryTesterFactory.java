@@ -24,7 +24,7 @@ public class QueryTesterFactory {
             case DEFAULT: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
                                 //new InsertArtistsQuery(),
-                                //new DeleteArtistsQuery(),
+                                new DeleteArtistsQuery(),
                                 //new GetArtistsQuery(),
                         }
                 ));
@@ -32,8 +32,8 @@ public class QueryTesterFactory {
             case RXJAVA: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
                                 //new InsertArtistsQueryRx(),
-                                new DeleteArtistsQueryRx(),
-                                //new GetArtistsQueryRx(),
+                                //new DeleteArtistsQueryRx(),
+                                new GetArtistsQueryRx(),
                         }
                 ));
             }

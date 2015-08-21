@@ -20,7 +20,7 @@ import rx.schedulers.Schedulers;
 public class DeleteArtistsQueryRx implements Executable{
     final private DeleteArtistQuery deleteArtistQuery = new DeleteArtistQuery();
     public void execute(){
-    for(int j=1;j<=100;j++)
+    for(int j=1;j<=10;j++)
         threads(); 
     }  
     
@@ -58,8 +58,8 @@ public class DeleteArtistsQueryRx implements Executable{
       try {
           myObservable.
                   subscribeOn(Schedulers.io()).
-                    observeOn(Schedulers.from(executorService)).
-                    //observeOn(Schedulers.trampoline()).
+                    //observeOn(Schedulers.from(executorService)).
+                    observeOn(Schedulers.trampoline()).
                         subscribe(mySubscriber);
             Thread.sleep(100);                 
           } catch(InterruptedException ex) {Thread.currentThread().interrupt();}

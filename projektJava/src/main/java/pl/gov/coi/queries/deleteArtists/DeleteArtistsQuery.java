@@ -16,7 +16,7 @@ public class DeleteArtistsQuery implements Executable{
     
     public void execute() throws SQLException 
     {
-        for (int j = 1; j <= 300; j++) 
+        for (int j = 1; j <= 100; j++) 
         {
            new DeleteArtistQuery().execute();
         }
