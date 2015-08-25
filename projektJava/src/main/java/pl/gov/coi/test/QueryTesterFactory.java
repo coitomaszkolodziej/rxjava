@@ -23,8 +23,8 @@ public class QueryTesterFactory {
         switch (mode) {
             case DEFAULT: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
-                                //new InsertArtistsQuery(),
-                                new DeleteArtistsQuery(),
+                                new InsertArtistsQuery(),
+                                //new DeleteArtistsQuery(),
                                 //new GetArtistsQuery(),
                         }
                 ));

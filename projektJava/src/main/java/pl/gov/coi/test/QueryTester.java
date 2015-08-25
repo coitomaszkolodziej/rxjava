@@ -22,7 +22,7 @@ public class QueryTester {
             executable.execute();
         }
 
-        for (int idx = 1; idx < 10; idx++) {
+        for (int idx = 1; idx < 1; idx++) {
             getRandom().execute();
         }
     }

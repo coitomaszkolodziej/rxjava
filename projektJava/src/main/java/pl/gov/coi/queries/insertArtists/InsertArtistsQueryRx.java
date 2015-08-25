@@ -20,7 +20,7 @@ public class InsertArtistsQueryRx implements Executable {
         /*
         Powinno robic dokladnie to samo co InsertArtistsQuery ale w roznych watkach (rxJava)
          */
-        for(int j=1;j<=1000;j++)
+        for(int j=1;j<=100;j++)
             threads();
     }
     

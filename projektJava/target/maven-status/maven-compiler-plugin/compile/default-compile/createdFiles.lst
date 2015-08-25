@@ -17,6 +17,7 @@ pl\gov\coi\queries\insertArtists\InsertArtistsQuery.class
 pl\gov\coi\queries\getArtists\GetArtistQuery.class
 pl\gov\coi\queries\deleteArtists\DeleteArtistsQueryRx.class
 pl\gov\coi\queries\insertArtists\InsertArtistQuery.class
+pl\gov\coi\ExampleJavaTestClass.class
 pl\gov\coi\queries\deleteArtists\DeleteArtistQuery.class
 pl\gov\coi\queries\deleteArtists\DeleteArtistsQueryRx$2.class
 pl\gov\coi\queries\getArtists\GetArtistsQueryRx.class

@@ -28,7 +28,9 @@ public class InsertArtistQuery implements Executable {
         List<Object> params = Lists.newArrayList();
         params.add(Random.getStringValue(DataLoader.getInstance().getNames()));
         params.add(Random.getStringValue(DataLoader.getInstance().getSurnames()));
-        params.add(Random.getIntAgeValue());
+        int a=Random.getIntAgeValue();
+        params.add(a);
+        System.out.println("wiek "+a);
         return params;
     }
 

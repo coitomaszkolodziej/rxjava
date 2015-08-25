@@ -10,7 +10,7 @@ public class InsertArtistsQuery implements Executable {
 
     public void execute() throws SQLException 
     {
-        for (int j = 1; j <= 500; j++) 
+        for (int j = 1; j <= 1; j++) 
         {
            new InsertArtistQuery().execute();
         }
