@@ -6,6 +6,7 @@
 package pl.gov.coi.queries;
 
 import com.github.davidmoten.rx.jdbc.Database;
+import com.github.davidmoten.rx.jdbc.Util;
 import pl.gov.coi.db.DatabaseConnection;
 
 import java.sql.Connection;
@@ -52,8 +53,9 @@ public enum Query {
     public static void RX(final Query query) throws SQLException
     {
         final Connection conn = DatabaseConnection.getInstance().getConnection();
-        Database db=new Database(conn);
-        db.update(INSERT_ARTIST.getSql()).parameters("A","B",23);
+        Database db;
+        db = new Database(conn);
+        db.update(query.getSql());
         //List<Integer> id=  db.select("Select artist_id FROM artists").getAs(Integer.class).toList().toBlocking().single();
         //System.out.println(id);
         //System.out.println(query.getSql());

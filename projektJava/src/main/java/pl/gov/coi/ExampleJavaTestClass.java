@@ -12,10 +12,9 @@ import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
 import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
-import pl.gov.coi.queries.Query;
+import pl.gov.coi.queries.insertArtists.InsertArtistsQuery;
 
-import pl.gov.coi.queries.insertArtists.InsertArtistQuery;
-import pl.gov.coi.test.QueryTesterFactory;
+import pl.gov.coi.queries.insertArtists.InsertArtistsQueryRx;
  
 public class ExampleJavaTestClass extends AbstractJavaSamplerClient implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -41,7 +40,7 @@ public class ExampleJavaTestClass extends AbstractJavaSamplerClient implements S
         SampleResult result = new SampleResult();
         result.sampleStart(); 
         try {
-            new InsertArtistQuery().execute();
+            new InsertArtistsQuery().execute();
             //Thread.sleep(100);
             result.setSuccessful(true);
         } catch (SQLException e) {            

@@ -31,9 +31,9 @@ public class QueryTesterFactory {
             }
             case RXJAVA: {
                 return new QueryTester(Lists.newArrayList(new Executable[]{
-                                //new InsertArtistsQueryRx(),
+                                new InsertArtistsQueryRx(),
                                 //new DeleteArtistsQueryRx(),
-                                new GetArtistsQueryRx(),
+                                //new GetArtistsQueryRx(),
                         }
                 ));
             }
