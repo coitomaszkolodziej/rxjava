@@ -6,15 +6,16 @@
 package pl.gov.coi;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
 import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
 import pl.gov.coi.queries.insertArtists.InsertArtistsQuery;
-
-import pl.gov.coi.queries.insertArtists.InsertArtistsQueryRx;
  
 public class ExampleJavaTestClass extends AbstractJavaSamplerClient implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -41,15 +42,14 @@ public class ExampleJavaTestClass extends AbstractJavaSamplerClient implements S
         result.sampleStart(); 
         try {
             new InsertArtistsQuery().execute();
+            
             //Thread.sleep(100);
             result.setSuccessful(true);
-        } catch (SQLException e) {            
-            result.setResponseMessage( "Exception: " + e );       
+        } catch (SQLException e) {   
+            //} catch (FileNotFoundException ex) {
+            result.setResponseMessage( "Exception: " + e );}
         //} catch (InterruptedException e) {
        //     result.setResponseMessage( "Exception: " + e );
-        }
-            
-            
         result.sampleEnd();
         return result;
     }

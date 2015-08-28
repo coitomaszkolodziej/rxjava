@@ -375,7 +375,12 @@
             </exclusions>
         </dependency>
     
-        
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_parent</artifactId>
+            <version>2.13</version>
+            <type>pom</type>
+        </dependency>
 
         <dependency>
             <groupId>com.google.collections</groupId>
@@ -409,6 +414,7 @@
         </dependency>
         
     </dependencies>
+    
     
 
     <build>
@@ -476,4 +482,11 @@
             </plugin>
         </plugins>
     </build>
+    
+    <repositories>
+        <repository>
+                <id>central</id>
+                <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
 </project>
